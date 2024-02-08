@@ -4,9 +4,9 @@ from django.http import HttpResponse
 from .models import reviews
 # Create your views here.
 def home(request):
-    searchTerm= request.GET.get('searchReview')
+    searchTerm= request.GET.get('searchMovie')
     if searchTerm:
-        Reviews= reviews.objects.filter(title_icontains=searchTerm)
+        Reviews= reviews.objects.filter(title=searchTerm)
     else:
         Reviews= reviews.objects.all()
     return render(request,'home.html', {'searchTerm':searchTerm, 'Reviews':Reviews})
