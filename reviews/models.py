@@ -6,4 +6,7 @@ class reviews(models.Model):
     description = models.CharField(max_length=250)
     image= models.ImageField(upload_to='reviews/images/')
     url= models.URLField(blank=True)
-    
+    genre= models.CharField(blank=True, null=True, max_length=100)
+    year= models.IntegerField(blank=True,null=True)
+    def __str__(self):
+        return self.title
